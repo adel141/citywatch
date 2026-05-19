@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:citywatch_canada/core/theme/app_colors.dart';
 import 'package:citywatch_canada/core/constants/app_strings.dart';
@@ -111,7 +112,7 @@ class SplashScreen extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            // TODO: Navigate to welcome / home in later stages.
+                            context.go('/welcome');
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
