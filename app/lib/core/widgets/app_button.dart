@@ -48,7 +48,7 @@ class AppButton extends StatelessWidget {
         backgroundColor = Colors.transparent;
         foregroundColor = isButtonEnabled
             ? (isDark ? AppColors.darkTextPrimary : AppColors.deepNavy)
-            : (isDark ? Colors.white30 : Colors.black30);
+            : (isDark ? Colors.white30 : Colors.black38);
         borderSide = BorderSide(
           color: isButtonEnabled
               ? (isDark ? AppColors.darkBorder : AppColors.lightBorder)
@@ -60,7 +60,7 @@ class AppButton extends StatelessWidget {
         backgroundColor = Colors.transparent;
         foregroundColor = isButtonEnabled
             ? AppColors.civicBlue
-            : (isDark ? Colors.white30 : Colors.black30);
+            : (isDark ? Colors.white30 : Colors.black38);
         break;
     }
 
@@ -74,7 +74,7 @@ class AppButton extends StatelessWidget {
             height: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              valueColor: AlwaysStoppedAnimation<Color>(foregroundColor),
+              valueColor: AlwaysStoppedAnimation<Color>(foregroundColor ?? Colors.white),
             ),
           ),
           const SizedBox(width: 12),

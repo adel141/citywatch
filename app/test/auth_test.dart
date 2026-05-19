@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:citywatch_canada/app/citywatch_app.dart';
 import 'package:citywatch_canada/features/auth/welcome_screen.dart';
 import 'package:citywatch_canada/features/auth/login_screen.dart';
 import 'package:citywatch_canada/features/auth/register_screen.dart';

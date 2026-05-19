@@ -9,6 +9,8 @@ class AppSizes {
   static const double lg = 24;
   static const double xl = 32;
   static const double xxl = 48;
+  static const double containerMargin = 20;
+
 
   // ── Border Radius ──────────────────────────────────────────────────────────
   static const double radiusSm = 8;
