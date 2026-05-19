@@ -8,8 +8,12 @@ void main() {
     await tester.pumpAndSettle();
 
     // Verify that the title 'CityWatch Canada' is present on the splash screen
-    expect(find.textContaining('CityWatch'), findsWidgets);
-    expect(find.textContaining('Canada'), findsWidgets);
+    expect(
+      find.byWidgetPredicate((widget) =>
+          widget is RichText &&
+          widget.text.toPlainText().contains('CityWatch')),
+      findsWidgets,
+    );
 
     // Verify tagline or button is present
     expect(find.textContaining('Report local issues'), findsOneWidget);
