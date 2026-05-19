@@ -31,8 +31,8 @@ class AppButton extends StatelessWidget {
 
     final isButtonEnabled = onPressed != null && !isLoading;
 
-    Color? backgroundColor;
-    Color? foregroundColor;
+    Color backgroundColor = Colors.transparent;
+    Color foregroundColor = Colors.white;
     BorderSide? borderSide;
 
     switch (variant) {
@@ -74,7 +74,7 @@ class AppButton extends StatelessWidget {
             height: 20,
             child: CircularProgressIndicator(
               strokeWidth: 2,
-              valueColor: AlwaysStoppedAnimation<Color>(foregroundColor ?? Colors.white),
+              valueColor: AlwaysStoppedAnimation<Color>(foregroundColor),
             ),
           ),
           const SizedBox(width: 12),

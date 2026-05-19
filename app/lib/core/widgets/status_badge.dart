@@ -21,7 +21,7 @@ class StatusBadge extends StatelessWidget {
     // Apply tint styling (10% opacity for background, full high-contrast color for text/border)
     // For dark mode, we can make the background slightly more visible (~20% opacity) or adjust text contrast.
     final double bgOpacity = isDark ? 0.20 : 0.12;
-    final Color backgroundColor = baseColor.withOpacity(bgOpacity);
+    final Color backgroundColor = baseColor.withValues(alpha: bgOpacity);
     final Color textColor = isDark ? _lighten(baseColor, 0.2) : _darken(baseColor, 0.2);
 
     // Format display string (e.g. underReview -> Under Review)
@@ -33,7 +33,7 @@ class StatusBadge extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(999), // full Pill (999px)
         border: Border.all(
-          color: baseColor.withOpacity(isDark ? 0.4 : 0.2),
+          color: baseColor.withValues(alpha: isDark ? 0.4 : 0.2),
           width: 1,
         ),
       ),

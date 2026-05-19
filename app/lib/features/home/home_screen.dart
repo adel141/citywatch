@@ -342,7 +342,7 @@ class _MapPinMarker extends StatelessWidget {
       width: 24,
       height: 24,
       decoration: BoxDecoration(
-        color: markerColor.withOpacity(0.2),
+        color: markerColor.withValues(alpha: 0.2),
         shape: BoxShape.circle,
         border: Border.all(color: markerColor, width: 1.5),
       ),

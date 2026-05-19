@@ -151,27 +151,36 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         ],
                       ),
                     )
-                  : GridView(
+                  : SingleChildScrollView(
                       padding: const EdgeInsets.symmetric(
                         horizontal: AppSizes.containerMargin,
                         vertical: 8,
                       ),
-                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        mainAxisSpacing: 20,
-                        crossAxisSpacing: 20,
-                        childAspectRatio: 0.9,
+                      child: LayoutBuilder(
+                        builder: (context, constraints) {
+                          // 3 columns, spacing is 20, so 2 gaps of 20 = 40.
+                          final width = (constraints.maxWidth - 40) / 3;
+                          final height = width / 0.9; // childAspectRatio of 0.9
+                          return Wrap(
+                            spacing: 20,
+                            runSpacing: 20,
+                            children: filteredCategories.map((cat) {
+                              return SizedBox(
+                                width: width,
+                                height: height,
+                                child: CategoryCard(
+                                  label: cat['label'],
+                                  icon: cat['icon'],
+                                  color: cat['color'],
+                                  onTap: () {
+                                    context.push('/report/submit?category=${cat['label']}');
+                                  },
+                                ),
+                              );
+                            }).toList(),
+                          );
+                        },
                       ),
-                      children: filteredCategories.map((cat) {
-                        return CategoryCard(
-                          label: cat['label'],
-                          icon: cat['icon'],
-                          color: cat['color'],
-                          onTap: () {
-                            context.push('/report/submit?category=${cat['label']}');
-                          },
-                        );
-                      }).toList(),
                     ),
             ),
           ],

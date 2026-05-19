@@ -950,9 +950,6 @@ class _InteractiveMapPainter extends CustomPainter {
       ..strokeWidth = 16
       ..style = PaintingStyle.stroke;
 
-    final borderPaint = Paint()
-      ..color = isDark ? Colors.white30 : Colors.black12;
-
     // Draw main intersecting grid roads
     canvas.drawLine(Offset(0, size.height * 0.4), Offset(size.width, size.height * 0.4), roadPaint);
     canvas.drawLine(Offset(0, size.height * 0.7), Offset(size.width, size.height * 0.7), roadPaint);
@@ -961,7 +958,7 @@ class _InteractiveMapPainter extends CustomPainter {
 
     // Draw road labels / dashed lane markings
     final lanePaint = Paint()
-      ..color = Colors.amber.withOpacity(0.3)
+      ..color = Colors.amber.withValues(alpha: 0.3)
       ..strokeWidth = 2
       ..style = PaintingStyle.stroke;
 

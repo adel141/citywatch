@@ -193,7 +193,7 @@ class _LogoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cardSize = size.width * 0.46;
+    final cardSize = (size.shortestSide * 0.46).clamp(140.0, 260.0);
 
     return Container(
       width: cardSize,
