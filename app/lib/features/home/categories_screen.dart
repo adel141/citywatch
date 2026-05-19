@@ -151,7 +151,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         ],
                       ),
                     )
-                  : GridView.builder(
+                  : GridView(
                       padding: const EdgeInsets.symmetric(
                         horizontal: AppSizes.containerMargin,
                         vertical: 8,
@@ -162,9 +162,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         crossAxisSpacing: 20,
                         childAspectRatio: 0.9,
                       ),
-                      itemCount: filteredCategories.length,
-                      itemBuilder: (context, index) {
-                        final cat = filteredCategories[index];
+                      children: filteredCategories.map((cat) {
                         return CategoryCard(
                           label: cat['label'],
                           icon: cat['icon'],
@@ -173,7 +171,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             context.push('/report/submit?category=${cat['label']}');
                           },
                         );
-                      },
+                      }).toList(),
                     ),
             ),
           ],

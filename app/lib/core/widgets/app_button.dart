@@ -92,22 +92,61 @@ class AppButton extends StatelessWidget {
       ],
     );
 
+    final buttonStyle = ElevatedButton.styleFrom(
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      elevation: 0,
+      shadowColor: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+    );
+
+    Widget buttonWidget;
+    switch (variant) {
+      case AppButtonVariant.primary:
+        buttonWidget = ElevatedButton(
+          onPressed: isButtonEnabled ? onPressed : null,
+          style: buttonStyle,
+          child: content,
+        );
+        break;
+      case AppButtonVariant.secondary:
+        buttonWidget = OutlinedButton(
+          onPressed: isButtonEnabled ? onPressed : null,
+          style: OutlinedButton.styleFrom(
+            backgroundColor: backgroundColor,
+            foregroundColor: foregroundColor,
+            side: borderSide ?? BorderSide.none,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+          ),
+          child: content,
+        );
+        break;
+      case AppButtonVariant.text:
+        buttonWidget = TextButton(
+          onPressed: isButtonEnabled ? onPressed : null,
+          style: TextButton.styleFrom(
+            backgroundColor: backgroundColor,
+            foregroundColor: foregroundColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppSizes.radiusMd),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+          ),
+          child: content,
+        );
+        break;
+    }
+
     return SizedBox(
       width: width ?? double.infinity,
       height: height,
-      child: OutlinedButton(
-        onPressed: isButtonEnabled ? onPressed : null,
-        style: OutlinedButton.styleFrom(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          side: borderSide ?? BorderSide.none,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSizes.radiusMd),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-        ),
-        child: content,
-      ),
+      child: buttonWidget,
     );
   }
 }

@@ -7,6 +7,8 @@ import 'package:citywatch_canada/features/auth/register_screen.dart';
 import 'package:citywatch_canada/features/home/main_layout.dart';
 import 'package:citywatch_canada/features/home/home_screen.dart';
 import 'package:citywatch_canada/features/home/categories_screen.dart';
+import 'package:citywatch_canada/features/report/report_submit_screen.dart';
+
 
 /// App-level router configuration using GoRouter.
 ///
@@ -86,11 +88,10 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/report/submit',
       name: 'report_submit',
-      builder: (context, state) => const Scaffold(
-        body: Center(
-          child: Text('Report Submission Flow (Stage 5)'),
-        ),
-      ),
+      builder: (context, state) {
+        final category = state.uri.queryParameters['category'];
+        return ReportSubmitScreen(initialCategory: category);
+      },
     ),
     GoRoute(
       path: '/report/details',

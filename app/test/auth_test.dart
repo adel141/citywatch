@@ -47,7 +47,7 @@ void main() {
     );
 
     // Verify Title
-    expect(find.text('Create Account'), findsOneWidget);
+    expect(find.text('Create Account'), findsNWidgets(2));
     
     // Tap Create Account
     await tester.tap(find.widgetWithText(ElevatedButton, 'Create Account'));
