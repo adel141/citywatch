@@ -14,6 +14,7 @@ class AppTextField extends StatelessWidget {
   final int maxLines;
   final bool readOnly;
   final VoidCallback? onTap;
+  final ValueChanged<String>? onChanged;
 
   const AppTextField({
     super.key,
@@ -28,6 +29,7 @@ class AppTextField extends StatelessWidget {
     this.maxLines = 1,
     this.readOnly = false,
     this.onTap,
+    this.onChanged,
   });
 
   @override
@@ -87,6 +89,7 @@ class AppTextField extends StatelessWidget {
       maxLines: maxLines,
       readOnly: readOnly,
       onTap: onTap,
+      onChanged: onChanged,
       style: theme.textTheme.bodyLarge?.copyWith(
         color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
       ),
