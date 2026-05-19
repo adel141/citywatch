@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../core/theme/app_colors.dart';
-import '../../core/constants/app_strings.dart';
+import 'package:citywatch_canada/core/theme/app_colors.dart';
+import 'package:citywatch_canada/core/constants/app_strings.dart';
+
 
 /// Splash / Welcome screen – the first screen the user sees.
 ///
